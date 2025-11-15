@@ -1,0 +1,15 @@
+C:\Users\crist\Desktop\University\Year3\TMPS\lab3\StructuralPatterns\bin\Debug\net8.0\StructuralPatterns.exe
+C:\Users\crist\Desktop\University\Year3\TMPS\lab3\StructuralPatterns\bin\Debug\net8.0\StructuralPatterns.deps.json
+C:\Users\crist\Desktop\University\Year3\TMPS\lab3\StructuralPatterns\bin\Debug\net8.0\StructuralPatterns.runtimeconfig.json
+C:\Users\crist\Desktop\University\Year3\TMPS\lab3\StructuralPatterns\bin\Debug\net8.0\StructuralPatterns.dll
+C:\Users\crist\Desktop\University\Year3\TMPS\lab3\StructuralPatterns\bin\Debug\net8.0\StructuralPatterns.pdb
+C:\Users\crist\Desktop\University\Year3\TMPS\lab3\StructuralPatterns\obj\Debug\net8.0\StructuralPatterns.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\crist\Desktop\University\Year3\TMPS\lab3\StructuralPatterns\obj\Debug\net8.0\StructuralPatterns.AssemblyInfoInputs.cache
+C:\Users\crist\Desktop\University\Year3\TMPS\lab3\StructuralPatterns\obj\Debug\net8.0\StructuralPatterns.AssemblyInfo.cs
+C:\Users\crist\Desktop\University\Year3\TMPS\lab3\StructuralPatterns\obj\Debug\net8.0\StructuralPatterns.csproj.CoreCompileInputs.cache
+C:\Users\crist\Desktop\University\Year3\TMPS\lab3\StructuralPatterns\obj\Debug\net8.0\StructuralPatterns.sourcelink.json
+C:\Users\crist\Desktop\University\Year3\TMPS\lab3\StructuralPatterns\obj\Debug\net8.0\StructuralPatterns.dll
+C:\Users\crist\Desktop\University\Year3\TMPS\lab3\StructuralPatterns\obj\Debug\net8.0\refint\StructuralPatterns.dll
+C:\Users\crist\Desktop\University\Year3\TMPS\lab3\StructuralPatterns\obj\Debug\net8.0\StructuralPatterns.pdb
+C:\Users\crist\Desktop\University\Year3\TMPS\lab3\StructuralPatterns\obj\Debug\net8.0\StructuralPatterns.genruntimeconfig.cache
+C:\Users\crist\Desktop\University\Year3\TMPS\lab3\StructuralPatterns\obj\Debug\net8.0\ref\StructuralPatterns.dll
