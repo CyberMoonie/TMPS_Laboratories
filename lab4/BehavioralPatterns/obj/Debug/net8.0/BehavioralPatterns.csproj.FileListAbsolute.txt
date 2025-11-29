@@ -1,0 +1,15 @@
+C:\Users\crist\Desktop\University\Year3\TMPS\lab4\BehavioralPatterns\bin\Debug\net8.0\BehavioralPatterns.exe
+C:\Users\crist\Desktop\University\Year3\TMPS\lab4\BehavioralPatterns\bin\Debug\net8.0\BehavioralPatterns.deps.json
+C:\Users\crist\Desktop\University\Year3\TMPS\lab4\BehavioralPatterns\bin\Debug\net8.0\BehavioralPatterns.runtimeconfig.json
+C:\Users\crist\Desktop\University\Year3\TMPS\lab4\BehavioralPatterns\bin\Debug\net8.0\BehavioralPatterns.dll
+C:\Users\crist\Desktop\University\Year3\TMPS\lab4\BehavioralPatterns\bin\Debug\net8.0\BehavioralPatterns.pdb
+C:\Users\crist\Desktop\University\Year3\TMPS\lab4\BehavioralPatterns\obj\Debug\net8.0\BehavioralPatterns.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\crist\Desktop\University\Year3\TMPS\lab4\BehavioralPatterns\obj\Debug\net8.0\BehavioralPatterns.AssemblyInfoInputs.cache
+C:\Users\crist\Desktop\University\Year3\TMPS\lab4\BehavioralPatterns\obj\Debug\net8.0\BehavioralPatterns.AssemblyInfo.cs
+C:\Users\crist\Desktop\University\Year3\TMPS\lab4\BehavioralPatterns\obj\Debug\net8.0\BehavioralPatterns.csproj.CoreCompileInputs.cache
+C:\Users\crist\Desktop\University\Year3\TMPS\lab4\BehavioralPatterns\obj\Debug\net8.0\BehavioralPatterns.sourcelink.json
+C:\Users\crist\Desktop\University\Year3\TMPS\lab4\BehavioralPatterns\obj\Debug\net8.0\BehavioralPatterns.dll
+C:\Users\crist\Desktop\University\Year3\TMPS\lab4\BehavioralPatterns\obj\Debug\net8.0\refint\BehavioralPatterns.dll
+C:\Users\crist\Desktop\University\Year3\TMPS\lab4\BehavioralPatterns\obj\Debug\net8.0\BehavioralPatterns.pdb
+C:\Users\crist\Desktop\University\Year3\TMPS\lab4\BehavioralPatterns\obj\Debug\net8.0\BehavioralPatterns.genruntimeconfig.cache
+C:\Users\crist\Desktop\University\Year3\TMPS\lab4\BehavioralPatterns\obj\Debug\net8.0\ref\BehavioralPatterns.dll
