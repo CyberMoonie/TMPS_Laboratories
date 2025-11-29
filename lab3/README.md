@@ -18,7 +18,55 @@
 
 ---
 
-## 1. Facade Pattern
+## All Structural Patterns Explained
+
+### 1. Adapter (Implemented)
+
+**What:** Converts one interface to another that clients expect.  
+**Use when:** Need to use existing class with incompatible interface.  
+**Example:** Integrating legacy payment system with new API, power plug adapter.
+
+### 2. Bridge
+
+**What:** Separates abstraction from implementation so both can vary independently.  
+**Use when:** Want to avoid permanent binding between abstraction and implementation.  
+**Example:** Remote control (abstraction) works with different devices (implementation).
+
+### 3. Composite
+
+**What:** Composes objects into tree structures to represent part-whole hierarchies.  
+**Use when:** Want to treat individual objects and compositions uniformly.  
+**Example:** File system (files and folders), UI components, organization charts.
+
+### 4. Decorator (Implemented)
+
+**What:** Adds new functionality to objects dynamically without altering structure.  
+**Use when:** Need to add responsibilities to objects without affecting others.  
+**Example:** Coffee with milk/sugar, text formatting, weapon enhancements.
+
+### 5. Facade (Implemented)
+
+**What:** Provides simplified, unified interface to complex subsystems.  
+**Use when:** Need simple interface to complex system with many dependencies.  
+**Example:** Computer startup process, home theater system, API wrappers.
+
+### 6. Flyweight
+
+**What:** Shares objects to support large numbers efficiently, minimizing memory.  
+**Use when:** Need many similar objects, most state can be made extrinsic.  
+**Example:** Text editor characters, game particles, tree rendering in forests.
+
+### 7. Proxy
+
+**What:** Provides placeholder/surrogate to control access to another object.  
+**Use when:** Need lazy initialization, access control, or remote object access.  
+**Example:** Virtual proxy for images, protection proxy for resources, caching.
+
+---
+
+## Implemented Patterns Details
+
+### 1. Facade Pattern
 
 ### Theory:
 
@@ -26,118 +74,26 @@
 
 **Use when:** You have multiple complex subsystems that need to work together, and you want to provide a simple interface to clients.
 
-### Implementation:
+### Key Components:
 
-#### GameSubsystems.cs
+- **GraphicsEngine, AudioSystem, InputManager, NetworkManager** - Complex subsystems
+- **GameFacade** - Simplified interface that coordinates all subsystems
 
-```csharp
-namespace StructuralPatterns.Facade;
-
-// Complex subsystem components
-public class GraphicsEngine
-{
-    public void Initialize()
-    {
-        Console.WriteLine("  [Graphics] Initializing graphics engine...");
-    }
-
-    public void LoadTextures()
-    {
-        Console.WriteLine("  [Graphics] Loading textures...");
-    }
-
-    public void Render()
-    {
-        Console.WriteLine("  [Graphics] Rendering frame...");
-    }
-}
-
-public class AudioSystem
-{
-    public void Initialize()
-    {
-        Console.WriteLine("  [Audio] Initializing audio system...");
-    }
-
-    public void LoadSounds()
-    {
-        Console.WriteLine("  [Audio] Loading sound effects...");
-    }
-
-    public void PlayBackgroundMusic()
-    {
-        Console.WriteLine("  [Audio] Playing background music...");
-    }
-}
-
-public class InputManager
-{
-    public void Initialize()
-    {
-        Console.WriteLine("  [Input] Initializing input manager...");
-    }
-
-    public void DetectControllers()
-    {
-        Console.WriteLine("  [Input] Detecting controllers...");
-    }
-}
-
-public class NetworkManager
-{
-    public void Initialize()
-    {
-        Console.WriteLine("  [Network] Initializing network...");
-    }
-
-    public void ConnectToServer()
-    {
-        Console.WriteLine("  [Network] Connecting to game server...");
-    }
-}
-```
-
-#### GameFacade.cs
+### Code Example:
 
 ```csharp
-namespace StructuralPatterns.Facade;
-
-// Facade that simplifies the complex subsystems
+// Facade provides simple interface
 public class GameFacade
 {
     private readonly GraphicsEngine _graphics;
     private readonly AudioSystem _audio;
-    private readonly InputManager _input;
-    private readonly NetworkManager _network;
+    // ... other subsystems
 
-    public GameFacade()
-    {
-        _graphics = new GraphicsEngine();
-        _audio = new AudioSystem();
-        _input = new InputManager();
-        _network = new NetworkManager();
-    }
-
-    // Simple method that hides complex initialization
     public void StartGame()
     {
-        Console.WriteLine("\n[Facade] Starting game - simplified interface");
         _graphics.Initialize();
-        _graphics.LoadTextures();
         _audio.Initialize();
-        _audio.LoadSounds();
-        _input.Initialize();
-        _input.DetectControllers();
-        _network.Initialize();
-        _network.ConnectToServer();
-        Console.WriteLine("[Facade] Game started successfully!\n");
-    }
-
-    // Simple method for game loop
-    public void RunGameFrame()
-    {
-        _graphics.Render();
-        _audio.PlayBackgroundMusic();
+        // ... initialize all subsystems
     }
 }
 ```
@@ -167,13 +123,16 @@ game.RunGameFrame();
 
 **Use when:** You need to add responsibilities to objects dynamically and transparently, without affecting other objects.
 
-### Implementation:
+### Key Components:
 
-#### IWeapon.cs
+- **IWeapon** - Component interface
+- **BasicSword** - Concrete component
+- **WeaponDecorator** - Base decorator class
+- **FireEnchantment, PoisonCoating, Sharpened** - Concrete decorators
+
+### Code Example:
 
 ```csharp
-namespace StructuralPatterns.Decorator;
-
 // Component interface
 public interface IWeapon
 {
@@ -181,93 +140,17 @@ public interface IWeapon
     int GetDamage();
 }
 
-// Concrete component - base weapon
-public class BasicSword : IWeapon
-{
-    public string GetDescription()
-    {
-        return "Basic Sword";
-    }
-
-    public int GetDamage()
-    {
-        return 10;
-    }
-}
-```
-
-#### WeaponDecorators.cs
-
-```csharp
-namespace StructuralPatterns.Decorator;
-
 // Base decorator
 public abstract class WeaponDecorator : IWeapon
 {
     protected IWeapon _weapon;
-
-    public WeaponDecorator(IWeapon weapon)
-    {
-        _weapon = weapon;
-    }
-
-    public virtual string GetDescription()
-    {
-        return _weapon.GetDescription();
-    }
-
-    public virtual int GetDamage()
-    {
-        return _weapon.GetDamage();
-    }
+    public WeaponDecorator(IWeapon weapon) => _weapon = weapon;
 }
 
-// Concrete decorator - adds fire damage
+// Concrete decorator
 public class FireEnchantment : WeaponDecorator
 {
-    public FireEnchantment(IWeapon weapon) : base(weapon) { }
-
-    public override string GetDescription()
-    {
-        return _weapon.GetDescription() + " + Fire Enchantment";
-    }
-
-    public override int GetDamage()
-    {
-        return _weapon.GetDamage() + 15; // +15 fire damage
-    }
-}
-
-// Concrete decorator - adds poison effect
-public class PoisonCoating : WeaponDecorator
-{
-    public PoisonCoating(IWeapon weapon) : base(weapon) { }
-
-    public override string GetDescription()
-    {
-        return _weapon.GetDescription() + " + Poison Coating";
-    }
-
-    public override int GetDamage()
-    {
-        return _weapon.GetDamage() + 8; // +8 poison damage
-    }
-}
-
-// Concrete decorator - adds sharpening
-public class Sharpened : WeaponDecorator
-{
-    public Sharpened(IWeapon weapon) : base(weapon) { }
-
-    public override string GetDescription()
-    {
-        return _weapon.GetDescription() + " + Sharpened Edge";
-    }
-
-    public override int GetDamage()
-    {
-        return _weapon.GetDamage() + 5; // +5 damage
-    }
+    public override int GetDamage() => _weapon.GetDamage() + 15;
 }
 ```
 
@@ -298,75 +181,30 @@ weapon = new Sharpened(weapon);
 
 **Use when:** You need to use an existing class with an incompatible interface, or want to create reusable classes that cooperate with unrelated classes.
 
-### Implementation:
+### Key Components:
 
-#### StorageInterfaces.cs
+- **ICloudStorage** - Target interface (what client expects)
+- **LegacyFileStorage** - Adaptee (existing incompatible class)
+- **FileStorageAdapter** - Adapter that bridges the two
+
+### Code Example:
 
 ```csharp
-namespace StructuralPatterns.Adapter;
-
-// Modern interface that our game expects
+// Target interface
 public interface ICloudStorage
 {
     void SaveToCloud(string playerName, int score);
-    string LoadFromCloud(string playerName);
 }
 
-// Legacy system with incompatible interface
-public class LegacyFileStorage
-{
-    public void WriteToFile(string filename, string data)
-    {
-        Console.WriteLine($"  [Legacy] Writing to file: {filename}");
-        Console.WriteLine($"  [Legacy] Data: {data}");
-    }
-
-    public string ReadFromFile(string filename)
-    {
-        Console.WriteLine($"  [Legacy] Reading from file: {filename}");
-        return "PlayerData: Score=1000"; // Simulated file content
-    }
-}
-```
-
-#### FileStorageAdapter.cs
-
-```csharp
-namespace StructuralPatterns.Adapter;
-
-// Adapter that makes legacy system work with modern interface
+// Adapter converts new interface to old implementation
 public class FileStorageAdapter : ICloudStorage
 {
     private readonly LegacyFileStorage _legacyStorage;
 
-    public FileStorageAdapter(LegacyFileStorage legacyStorage)
-    {
-        _legacyStorage = legacyStorage;
-    }
-
     public void SaveToCloud(string playerName, int score)
     {
-        Console.WriteLine("[Adapter] Converting cloud save request to file operation...");
-
-        // Adapt the interface: convert parameters to legacy format
         string filename = $"{playerName}.dat";
-        string data = $"PlayerData: Score={score}";
-
-        _legacyStorage.WriteToFile(filename, data);
-        Console.WriteLine("[Adapter] Save completed!\n");
-    }
-
-    public string LoadFromCloud(string playerName)
-    {
-        Console.WriteLine("[Adapter] Converting cloud load request to file operation...");
-
-        // Adapt the interface: convert parameters to legacy format
-        string filename = $"{playerName}.dat";
-        string fileContent = _legacyStorage.ReadFromFile(filename);
-
-        // Parse the legacy format and return it
-        Console.WriteLine("[Adapter] Load completed!\n");
-        return fileContent;
+        _legacyStorage.WriteToFile(filename, $"Score={score}");
     }
 }
 ```
